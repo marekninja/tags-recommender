@@ -1,26 +1,16 @@
 <template>
   <div class="home container">
-    <!-- {{ tags }} -->
-    <!-- <DocumentBrowse :document="documents[0]" :tags="tags" /> -->
-    <DocumentBrowse v-for="doc in documents" :key="doc.id" :document="doc" :tags="tags"/>
-    <!-- <div v-for="doc in documents" :key="doc.id">
-      Ahoj
-      <DocumentBrowse document=doc />
-    </div> -->
-    <HelloWorld msg="Browse documents!"/>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import DocumentBrowse from '@/components/DocumentBrowse.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld,
-    DocumentBrowse
   },
   data() {
     return {
