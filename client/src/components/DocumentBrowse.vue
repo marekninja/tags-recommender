@@ -1,8 +1,10 @@
 <template>
-    <div>
+    <div class="container">
         <div class="d-flex flex-wrap">
-            <span class="badge text-bg-info mx-1" v-for="(tag, id) in document.tags" :key="id">
-            #{{ tags[tag].text}}
+            <span class="badge text-bg-info mx-1" v-for="tag in document.tags" :key="tag.id">
+<!--              {{document}}-->
+              #{{tag.text}}
+<!--            #{{ tags[tag.id].text}}-->
             </span>
         </div>
         <div>
