@@ -32,7 +32,7 @@ class Tag(Base):
 class Document(Base):
     __tablename__ = 'documents'
     id = Column(Integer, primary_key=True)
-    text = Column(String(500))
+    text = Column(String(500), unique=False)
     
     tags = relationship("Tag", secondary=DocumentTag, back_populates="documents")
 
@@ -54,4 +54,4 @@ class Document(Base):
         tags = [ t.to_dict() for t in self.tags]
         serialized['tags'] = tags
         return js.dumps(serialized)
-    
+

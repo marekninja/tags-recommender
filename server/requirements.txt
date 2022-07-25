@@ -8,3 +8,4 @@ sqlalchemy~=1.4.39
 flask_sqlalchemy
 markupsafe==2.0.1
 requests
+flask-cors

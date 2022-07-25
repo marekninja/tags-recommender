@@ -19,11 +19,20 @@ def get_docs():
     documents = [i.to_dict() for i in documents]
     return documents
 
+def get_docs_sorted():
+    documents = Document.query.order_by(Document.id.asc()).all()
+    documents = [i.to_dict() for i in documents]
+    return documents
+
 def get_doc(id: int):
     doc = Document.query.filter_by(id=id).first()
     return doc.to_dict() if doc is not None else {}
 
 def create_doc(text, tags):
-    doc = Document(text,tags)
+    print(text)
+    print(tags)
+    persisted_tags = [db_session.get(Tag,i['id']) for i in tags]
+    print(persisted_tags)
+    doc = Document(text,persisted_tags)
     db_session.add(doc)
     db_session.commit()
