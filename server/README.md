@@ -45,4 +45,4 @@ POST: recommends hashtags for *text* based on similarity to top K documents
 
 **./prototypes**
 
-contains [jupyter notebook](server/prototypes/hashtags_recommender.ipynb) with recommender prototypes and comparison of approaches
+contains [jupyter notebook](./prototypes/hashtags_recommender.ipynb) with recommender prototypes and comparison of approaches
