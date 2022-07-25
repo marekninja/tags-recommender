@@ -1,5 +1,10 @@
 # ayanza-project
 
+Simple GUI
+
+Supported ops:
+*   retrieve documents from server and display with tags
+
 ## Project setup
 ```
 npm install
