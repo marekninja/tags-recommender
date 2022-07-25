@@ -4,5 +4,6 @@ Simple Vue.js + Flask app
 
 Proof of concept recommeder of hashtags.
 
-**/client** contains Vue.js GUI
-**/server** contains Flask Server
+[/client](tags-recommender/tree/main/client) contains Vue.js GUI 
+
+[/server](tags-recommender/tree/main/server) contains Flask Server
