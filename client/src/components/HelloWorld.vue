@@ -1,10 +1,6 @@
 <template>
   <div class="hello">
-    <div class="d-inline-flex">
-      <div class="d-flex align-items-center">
-        <h1> Ayanza SW &amp; ML Engineer assignment </h1>
-      </div>
-    </div>
+
     <!-- <h1>{{ msg }}</h1> -->
     <p>
       Write your own document!
