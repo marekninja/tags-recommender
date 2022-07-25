@@ -1,11 +1,13 @@
 from flask import Flask, Response, request
-# import requests as rq
+from flask_cors import CORS
+
 import json as js
 import database as db
-from models import Tag, Document
 import persistance as pt
+from recommender import init_recommender, get_recommendations
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/docs")
 def docs():
@@ -18,8 +20,8 @@ def docs():
 @app.route("/docs",methods = ['POST'])
 def create_doc():
   # create one document
-  request_data = request.get_json()  # getting data from client
-  pt.create_doct(request_data["text"], request_data["tags"],)
+  request_data = request.get_json(force=True)  # getting data from client
+  pt.create_doc(request_data["text"], request_data["tags"],)
   response = Response("Document added", 201, mimetype='application/json')
   return response
 
@@ -43,12 +45,16 @@ def tags():
   # tags = [i.to_dict() for i in tags]
   return js.dumps(tags)
 
-@app.route("/recommend",methods = ['GET'])
+@app.route("/recommend",methods = ['POST'])
 def recommend():
   # recommend tags for document
-  data = request.get_json()
-
-  pass
+  init_recommender()
+  data = request.get_json(force=False)
+  # data = request.get_json(force=True)
+  print(data)
+  text = data['text']
+  tags = get_recommendations(text)
+  return js.dumps(tags)
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
@@ -58,5 +64,6 @@ def shutdown_session(exception=None):
 
 if __name__ == '__main__':
   db.init_db()
+  # init_recommender()
   app.run(debug=True,host='localhost', port=5000)
   # app.run()
